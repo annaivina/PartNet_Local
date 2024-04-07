@@ -1,0 +1,2220 @@
+[2024-04-02 12:05:19,687] INFO: args:
+ - ('regression_mode', False)
+ - ('data_config', 'data_config/qg_kin.yaml')
+ - ('extra_selection', None)
+ - ('extra_test_selection', None)
+ - ('data_train', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_*.parquet'])
+ - ('data_val', [])
+ - ('data_test', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/test_file_*.parquet'])
+ - ('data_fraction', 1)
+ - ('file_fraction', 1)
+ - ('fetch_by_files', False)
+ - ('fetch_step', 1.0)
+ - ('in_memory', True)
+ - ('train_val_split', 0.8889)
+ - ('no_remake_weights', False)
+ - ('demo', False)
+ - ('lr_finder', None)
+ - ('tensorboard', 'QuarkGluon_kin_kin')
+ - ('tensorboard_custom_fn', None)
+ - ('network_config', 'network_config/ParticleNetConf.py')
+ - ('network_option', [])
+ - ('model_prefix', 'training/QuarkGluon/kin/net')
+ - ('load_model_weights', None)
+ - ('exclude_model_weights', None)
+ - ('num_epochs', 20)
+ - ('steps_per_epoch', 3125)
+ - ('steps_per_epoch_val', 390)
+ - ('samples_per_epoch', 1600000)
+ - ('samples_per_epoch_val', 200000)
+ - ('optimizer', 'ranger')
+ - ('optimizer_option', [])
+ - ('lr_scheduler', 'flat+decay')
+ - ('warmup_steps', 0)
+ - ('load_epoch', None)
+ - ('start_lr', 0.01)
+ - ('batch_size', 512)
+ - ('use_amp', False)
+ - ('gpus', '0')
+ - ('predict_gpus', '0')
+ - ('num_workers', 1)
+ - ('predict', False)
+ - ('predict_output', 'pred.root')
+ - ('export_onnx', None)
+ - ('onnx_opset', 15)
+ - ('io_test', False)
+ - ('copy_inputs', False)
+ - ('log', 'logs/QuarkGluon_kin.log')
+ - ('print', False)
+ - ('profile', False)
+ - ('backend', None)
+ - ('cross_validation', None)
+ - ('local_rank', None)
+[2024-04-02 12:05:19,690] INFO: Running in classification mode
+[2024-04-02 12:05:21,464] INFO: Using 18 files for training, range: (0, 0.8889)
+[2024-04-02 12:05:21,464] INFO: Using 18 files for validation, range: (0.8889, 1)
+[2024-04-02 15:06:24,211] INFO: args:
+ - ('regression_mode', False)
+ - ('data_config', 'data_config/qg_kin.yaml')
+ - ('extra_selection', None)
+ - ('extra_test_selection', None)
+ - ('data_train', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_*.parquet'])
+ - ('data_val', [])
+ - ('data_test', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/test_file_*.parquet'])
+ - ('data_fraction', 1)
+ - ('file_fraction', 1)
+ - ('fetch_by_files', False)
+ - ('fetch_step', 1.0)
+ - ('in_memory', True)
+ - ('train_val_split', 0.8889)
+ - ('no_remake_weights', False)
+ - ('demo', False)
+ - ('lr_finder', None)
+ - ('tensorboard', 'QuarkGluon_kin_kin')
+ - ('tensorboard_custom_fn', None)
+ - ('network_config', 'network_config/ParticleNetConf.py')
+ - ('network_option', [])
+ - ('model_prefix', 'training/QuarkGluon/kin/net')
+ - ('load_model_weights', None)
+ - ('exclude_model_weights', None)
+ - ('num_epochs', 20)
+ - ('steps_per_epoch', 3125)
+ - ('steps_per_epoch_val', 390)
+ - ('samples_per_epoch', 1600000)
+ - ('samples_per_epoch_val', 200000)
+ - ('optimizer', 'ranger')
+ - ('optimizer_option', [])
+ - ('lr_scheduler', 'flat+decay')
+ - ('warmup_steps', 0)
+ - ('load_epoch', None)
+ - ('start_lr', 0.01)
+ - ('batch_size', 512)
+ - ('use_amp', False)
+ - ('gpus', '0')
+ - ('predict_gpus', '0')
+ - ('num_workers', 1)
+ - ('predict', False)
+ - ('predict_output', 'pred.root')
+ - ('export_onnx', None)
+ - ('onnx_opset', 15)
+ - ('io_test', False)
+ - ('copy_inputs', False)
+ - ('log', 'logs/QuarkGluon_kin.log')
+ - ('print', False)
+ - ('profile', False)
+ - ('backend', None)
+ - ('cross_validation', None)
+ - ('local_rank', None)
+[2024-04-02 15:06:24,215] INFO: Running in classification mode
+[2024-04-02 15:06:25,242] INFO: Using 18 files for training, range: (0, 0.8889)
+[2024-04-02 15:06:25,243] INFO: Using 18 files for validation, range: (0.8889, 1)
+[2024-04-02 15:06:25,262] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:06:25,262] INFO: [0;37mselection: None[0m
+[2024-04-02 15:06:25,263] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:06:25,263] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:06:25,263] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:06:25,263] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:06:25,263] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:06:25,263] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:06:25,264] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:06:25,264] INFO: [0;37mobserver_names: ('jet_pt', 'jet_eta')[0m
+[2024-04-02 15:06:25,264] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:06:25,275] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:06:25,275] INFO: [0;37mselection: None[0m
+[2024-04-02 15:06:25,275] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:06:25,276] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:06:25,276] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:06:25,276] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:06:25,276] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:06:25,276] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:06:25,276] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:06:25,276] INFO: [0;37mobserver_names: ()[0m
+[2024-04-02 15:06:25,276] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:06:25,286] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:06:25,286] INFO: [0;37mselection: None[0m
+[2024-04-02 15:06:25,286] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:06:25,286] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:06:25,286] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:06:25,286] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:06:25,287] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:06:25,287] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:06:25,287] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:06:25,287] INFO: [0;37mobserver_names: ('jet_pt', 'jet_eta')[0m
+[2024-04-02 15:06:25,287] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:06:25,295] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:06:25,295] INFO: [0;37mselection: None[0m
+[2024-04-02 15:06:25,296] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:06:25,296] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:06:25,296] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:06:25,296] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:06:25,296] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:06:25,296] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:06:25,296] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:06:25,296] INFO: [0;37mobserver_names: ()[0m
+[2024-04-02 15:06:25,296] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:06:25,346] INFO: Network options: {}
+[2024-04-02 15:06:31,139] INFO: [0;37mWarning: module EdgeConvBlock is treated as a zero-op.[0m
+[2024-04-02 15:06:31,141] INFO: [0;37mWarning: module Dropout is treated as a zero-op.[0m
+[2024-04-02 15:06:31,141] INFO: [0;37mWarning: module ParticleNet is treated as a zero-op.[0m
+[2024-04-02 15:06:31,141] INFO: [0;37mWarning: module ParticleNetWrapper is treated as a zero-op.[0m
+[2024-04-02 15:06:31,916] INFO: [0;37mParticleNetWrapper(
+  |0.366 M, 100.000% Params, 535.727 MMac, 100.000% MACs|
+  (mod): ParticleNet(
+    |0.366 M, 100.000% Params, 535.727 MMac, 100.000% MACs|
+    (bn_fts): BatchNorm1d(7, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.004% Params, 1.792 KMac, 0.000% MACs|)
+    (edge_convs): ModuleList(
+      (0): EdgeConvBlock(
+        |0.01 M, 2.744% Params, 19.874 MMac, 3.710% MACs|
+        (convs): ModuleList(
+          (0): Conv2d(14, 64, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.001 M, 0.245% Params, 1.835 MMac, 0.343% MACs|)
+          (1-2): 2 x Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.004 M, 1.119% Params, 8.389 MMac, 1.566% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.035% Params, 262.144 KMac, 0.049% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 131.072 KMac, 0.024% MACs|)
+        )
+        (sc): Conv1d(7, 64, kernel_size=(1,), stride=(1,), bias=False, |0.0 M, 0.122% Params, 57.344 KMac, 0.011% MACs|)
+        (sc_bn): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.035% Params, 16.384 KMac, 0.003% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 8.192 KMac, 0.002% MACs|)
+      )
+      (1): EdgeConvBlock(
+        |0.058 M, 15.941% Params, 104.12 MMac, 19.435% MACs|
+        (convs): ModuleList(
+          (0-2): 3 x Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.016 M, 4.475% Params, 33.554 MMac, 6.263% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.070% Params, 524.288 KMac, 0.098% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 262.144 KMac, 0.049% MACs|)
+        )
+        (sc): Conv1d(64, 128, kernel_size=(1,), stride=(1,), bias=False, |0.008 M, 2.237% Params, 1.049 MMac, 0.196% MACs|)
+        (sc_bn): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.070% Params, 32.768 KMac, 0.006% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 16.384 KMac, 0.003% MACs|)
+      )
+      (2): EdgeConvBlock(
+        |0.231 M, 63.203% Params, 411.664 MMac, 76.842% MACs|
+        (convs): ModuleList(
+          (0-2): 3 x Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.066 M, 17.898% Params, 134.218 MMac, 25.053% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.001 M, 0.140% Params, 1.049 MMac, 0.196% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 524.288 KMac, 0.098% MACs|)
+        )
+        (sc): Conv1d(128, 256, kernel_size=(1,), stride=(1,), bias=False, |0.033 M, 8.949% Params, 4.194 MMac, 0.783% MACs|)
+        (sc_bn): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.001 M, 0.140% Params, 65.536 KMac, 0.012% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 32.768 KMac, 0.006% MACs|)
+      )
+    )
+    (fc): Sequential(
+      |0.066 M, 18.108% Params, 66.562 KMac, 0.012% MACs|
+      (0): Sequential(
+        |0.066 M, 17.968% Params, 66.048 KMac, 0.012% MACs|
+        (0): Linear(in_features=256, out_features=256, bias=True, |0.066 M, 17.968% Params, 65.792 KMac, 0.012% MACs|)
+        (1): ReLU(|0.0 M, 0.000% Params, 256.0 Mac, 0.000% MACs|)
+        (2): Dropout(p=0.1, inplace=False, |0.0 M, 0.000% Params, 0.0 Mac, 0.000% MACs|)
+      )
+      (1): Linear(in_features=256, out_features=2, bias=True, |0.001 M, 0.140% Params, 514.0 Mac, 0.000% MACs|)
+    )
+  )
+)[0m
+[2024-04-02 15:06:31,918] INFO: Computational complexity:       535.73 MMac
+[2024-04-02 15:06:31,919] INFO: Number of parameters:           366.16 k
+[2024-04-02 15:06:31,919] INFO: Using loss function CrossEntropyLoss() with options {}
+[2024-04-02 15:13:05,375] INFO: args:
+ - ('regression_mode', False)
+ - ('data_config', 'data_config/qg_kin.yaml')
+ - ('extra_selection', None)
+ - ('extra_test_selection', None)
+ - ('data_train', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_*.parquet'])
+ - ('data_val', [])
+ - ('data_test', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/test_file_*.parquet'])
+ - ('data_fraction', 1)
+ - ('file_fraction', 1)
+ - ('fetch_by_files', False)
+ - ('fetch_step', 1.0)
+ - ('in_memory', True)
+ - ('train_val_split', 0.8889)
+ - ('no_remake_weights', False)
+ - ('demo', False)
+ - ('lr_finder', None)
+ - ('tensorboard', 'QuarkGluon_kin_kin')
+ - ('tensorboard_custom_fn', None)
+ - ('network_config', 'network_config/ParticleNetConf.py')
+ - ('network_option', [])
+ - ('model_prefix', 'training/QuarkGluon/kin/net')
+ - ('load_model_weights', None)
+ - ('exclude_model_weights', None)
+ - ('num_epochs', 20)
+ - ('steps_per_epoch', 3125)
+ - ('steps_per_epoch_val', 390)
+ - ('samples_per_epoch', 1600000)
+ - ('samples_per_epoch_val', 200000)
+ - ('optimizer', 'ranger')
+ - ('optimizer_option', [])
+ - ('lr_scheduler', 'flat+decay')
+ - ('warmup_steps', 0)
+ - ('load_epoch', None)
+ - ('start_lr', 0.01)
+ - ('batch_size', 512)
+ - ('use_amp', False)
+ - ('gpus', '0')
+ - ('predict_gpus', '0')
+ - ('num_workers', 1)
+ - ('predict', False)
+ - ('predict_output', 'pred.root')
+ - ('export_onnx', None)
+ - ('onnx_opset', 15)
+ - ('io_test', False)
+ - ('copy_inputs', False)
+ - ('log', 'logs/QuarkGluon_kin.log')
+ - ('print', False)
+ - ('profile', False)
+ - ('backend', None)
+ - ('cross_validation', None)
+ - ('local_rank', None)
+[2024-04-02 15:13:05,376] INFO: Running in classification mode
+[2024-04-02 15:13:06,969] INFO: Using 18 files for training, range: (0, 0.8889)
+[2024-04-02 15:13:06,970] INFO: Using 18 files for validation, range: (0.8889, 1)
+[2024-04-02 15:13:06,985] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:13:06,985] INFO: [0;37mselection: None[0m
+[2024-04-02 15:13:06,985] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:13:06,985] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:13:06,986] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:13:06,986] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:13:06,986] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:13:06,986] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:13:06,986] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:13:06,986] INFO: [0;37mobserver_names: ('jet_pt', 'jet_eta')[0m
+[2024-04-02 15:13:06,987] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:13:06,997] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:13:06,997] INFO: [0;37mselection: None[0m
+[2024-04-02 15:13:06,997] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:13:06,998] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:13:06,998] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:13:06,998] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:13:06,999] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:13:06,999] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:13:06,999] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:13:06,999] INFO: [0;37mobserver_names: ()[0m
+[2024-04-02 15:13:07,000] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:13:07,015] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:13:07,015] INFO: [0;37mselection: None[0m
+[2024-04-02 15:13:07,015] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:13:07,015] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:13:07,016] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:13:07,016] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:13:07,016] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:13:07,016] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:13:07,016] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:13:07,017] INFO: [0;37mobserver_names: ('jet_pt', 'jet_eta')[0m
+[2024-04-02 15:13:07,017] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:13:07,026] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:13:07,026] INFO: [0;37mselection: None[0m
+[2024-04-02 15:13:07,026] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:13:07,026] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:13:07,026] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:13:07,026] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:13:07,026] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:13:07,027] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:13:07,027] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:13:07,027] INFO: [0;37mobserver_names: ()[0m
+[2024-04-02 15:13:07,027] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:13:07,035] INFO: Network options: {}
+[2024-04-02 15:13:07,813] INFO: [0;37mWarning: module EdgeConvBlock is treated as a zero-op.[0m
+[2024-04-02 15:13:07,813] INFO: [0;37mWarning: module Dropout is treated as a zero-op.[0m
+[2024-04-02 15:13:07,813] INFO: [0;37mWarning: module ParticleNet is treated as a zero-op.[0m
+[2024-04-02 15:13:07,814] INFO: [0;37mWarning: module ParticleNetWrapper is treated as a zero-op.[0m
+[2024-04-02 15:13:08,454] INFO: [0;37mParticleNetWrapper(
+  |0.366 M, 100.000% Params, 535.727 MMac, 100.000% MACs|
+  (mod): ParticleNet(
+    |0.366 M, 100.000% Params, 535.727 MMac, 100.000% MACs|
+    (bn_fts): BatchNorm1d(7, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.004% Params, 1.792 KMac, 0.000% MACs|)
+    (edge_convs): ModuleList(
+      (0): EdgeConvBlock(
+        |0.01 M, 2.744% Params, 19.874 MMac, 3.710% MACs|
+        (convs): ModuleList(
+          (0): Conv2d(14, 64, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.001 M, 0.245% Params, 1.835 MMac, 0.343% MACs|)
+          (1-2): 2 x Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.004 M, 1.119% Params, 8.389 MMac, 1.566% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.035% Params, 262.144 KMac, 0.049% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 131.072 KMac, 0.024% MACs|)
+        )
+        (sc): Conv1d(7, 64, kernel_size=(1,), stride=(1,), bias=False, |0.0 M, 0.122% Params, 57.344 KMac, 0.011% MACs|)
+        (sc_bn): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.035% Params, 16.384 KMac, 0.003% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 8.192 KMac, 0.002% MACs|)
+      )
+      (1): EdgeConvBlock(
+        |0.058 M, 15.941% Params, 104.12 MMac, 19.435% MACs|
+        (convs): ModuleList(
+          (0-2): 3 x Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.016 M, 4.475% Params, 33.554 MMac, 6.263% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.070% Params, 524.288 KMac, 0.098% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 262.144 KMac, 0.049% MACs|)
+        )
+        (sc): Conv1d(64, 128, kernel_size=(1,), stride=(1,), bias=False, |0.008 M, 2.237% Params, 1.049 MMac, 0.196% MACs|)
+        (sc_bn): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.070% Params, 32.768 KMac, 0.006% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 16.384 KMac, 0.003% MACs|)
+      )
+      (2): EdgeConvBlock(
+        |0.231 M, 63.203% Params, 411.664 MMac, 76.842% MACs|
+        (convs): ModuleList(
+          (0-2): 3 x Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.066 M, 17.898% Params, 134.218 MMac, 25.053% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.001 M, 0.140% Params, 1.049 MMac, 0.196% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 524.288 KMac, 0.098% MACs|)
+        )
+        (sc): Conv1d(128, 256, kernel_size=(1,), stride=(1,), bias=False, |0.033 M, 8.949% Params, 4.194 MMac, 0.783% MACs|)
+        (sc_bn): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.001 M, 0.140% Params, 65.536 KMac, 0.012% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 32.768 KMac, 0.006% MACs|)
+      )
+    )
+    (fc): Sequential(
+      |0.066 M, 18.108% Params, 66.562 KMac, 0.012% MACs|
+      (0): Sequential(
+        |0.066 M, 17.968% Params, 66.048 KMac, 0.012% MACs|
+        (0): Linear(in_features=256, out_features=256, bias=True, |0.066 M, 17.968% Params, 65.792 KMac, 0.012% MACs|)
+        (1): ReLU(|0.0 M, 0.000% Params, 256.0 Mac, 0.000% MACs|)
+        (2): Dropout(p=0.1, inplace=False, |0.0 M, 0.000% Params, 0.0 Mac, 0.000% MACs|)
+      )
+      (1): Linear(in_features=256, out_features=2, bias=True, |0.001 M, 0.140% Params, 514.0 Mac, 0.000% MACs|)
+    )
+  )
+)[0m
+[2024-04-02 15:13:08,455] INFO: Computational complexity:       535.73 MMac
+[2024-04-02 15:13:08,455] INFO: Number of parameters:           366.16 k
+[2024-04-02 15:13:08,455] INFO: Using loss function CrossEntropyLoss() with options {}
+[2024-04-02 15:13:14,460] INFO: Create Tensorboard summary writer with comment QuarkGluon_kin_kin
+[2024-04-02 15:13:14,470] INFO: Optimizer options: {}
+[2024-04-02 15:13:14,494] INFO: --------------------------------------------------
+[2024-04-02 15:13:14,494] INFO: Epoch #0 training
+[2024-04-02 15:13:14,709] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_0.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_1.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_10.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_11.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_12.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_13.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_14.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_15.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_16.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_17.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_2.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_3.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_4.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_5.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_6.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_7.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_8.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_9.parquet"
+  ]
+}
+[2024-04-02 15:13:14,719] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_2.parquet:
+[2024-04-02 15:13:14,739] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,740] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_12.parquet:
+[2024-04-02 15:13:14,742] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,743] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_8.parquet:
+[2024-04-02 15:13:14,744] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,745] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_4.parquet:
+[2024-04-02 15:13:14,745] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,746] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_11.parquet:
+[2024-04-02 15:13:14,747] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,748] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_17.parquet:
+[2024-04-02 15:13:14,749] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,750] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_14.parquet:
+[2024-04-02 15:13:14,750] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,751] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_15.parquet:
+[2024-04-02 15:13:14,752] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,752] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_9.parquet:
+[2024-04-02 15:13:14,753] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,754] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_13.parquet:
+[2024-04-02 15:13:14,754] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,755] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_5.parquet:
+[2024-04-02 15:13:14,755] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,756] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_7.parquet:
+[2024-04-02 15:13:14,756] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,757] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_3.parquet:
+[2024-04-02 15:13:14,758] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,759] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_16.parquet:
+[2024-04-02 15:13:14,759] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,760] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_1.parquet:
+[2024-04-02 15:13:14,760] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,761] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_10.parquet:
+[2024-04-02 15:13:14,761] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,762] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_6.parquet:
+[2024-04-02 15:13:14,762] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:13:14,762] ERROR: When reading file /srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_0.parquet:
+[2024-04-02 15:13:14,763] ERROR: Traceback (most recent call last):
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 67, in from_parquet
+    parquet_columns, subform, actual_paths, fs, subrg, row_counts, meta = metadata(
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 39, in dispatch
+    gen_or_result = func(*args, **kwargs)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/operations/ak_from_parquet.py", line 101, in metadata
+    pyarrow_parquet = awkward._connect.pyarrow.import_pyarrow_parquet("ak.from_parquet")
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_connect/pyarrow.py", line 51, in import_pyarrow_parquet
+    raise ImportError(error_message.format(name))
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 99, in _read_files
+    a = _read_parquet(filepath, branches, load_range=load_range)
+  File "/storage/agrp/annai/QURK-GLUON/PNet_torch/utils/data/fileio.py", line 71, in _read_parquet
+    outputs = ak.from_parquet(filepath, columns=branches)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_dispatch.py", line 70, in dispatch
+    return gen_or_result
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 85, in __exit__
+    self.handle_exception(exception_type, exception_value)
+  File "/srv01/agrp/annai/.local/lib/python3.8/site-packages/awkward/_errors.py", line 95, in handle_exception
+    raise self.decorate_exception(cls, exception)
+ImportError: to use ak.from_parquet, you must install pyarrow:
+
+    pip install pyarrow
+
+or
+
+    conda install -c conda-forge pyarrow
+
+
+This error occurred while calling
+
+    ak.from_parquet(
+        '/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkG'...
+        columns = ['jet_pt', 'part_pz', 'part_deta', 'jet_energy', 'part_py',...
+    )
+
+[2024-04-02 15:14:43,965] INFO: args:
+ - ('regression_mode', False)
+ - ('data_config', 'data_config/qg_kin.yaml')
+ - ('extra_selection', None)
+ - ('extra_test_selection', None)
+ - ('data_train', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_*.parquet'])
+ - ('data_val', [])
+ - ('data_test', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/test_file_*.parquet'])
+ - ('data_fraction', 1)
+ - ('file_fraction', 1)
+ - ('fetch_by_files', False)
+ - ('fetch_step', 1.0)
+ - ('in_memory', True)
+ - ('train_val_split', 0.8889)
+ - ('no_remake_weights', False)
+ - ('demo', False)
+ - ('lr_finder', None)
+ - ('tensorboard', 'QuarkGluon_kin_kin')
+ - ('tensorboard_custom_fn', None)
+ - ('network_config', 'network_config/ParticleNetConf.py')
+ - ('network_option', [])
+ - ('model_prefix', 'training/QuarkGluon/kin/net')
+ - ('load_model_weights', None)
+ - ('exclude_model_weights', None)
+ - ('num_epochs', 20)
+ - ('steps_per_epoch', 3125)
+ - ('steps_per_epoch_val', 390)
+ - ('samples_per_epoch', 1600000)
+ - ('samples_per_epoch_val', 200000)
+ - ('optimizer', 'ranger')
+ - ('optimizer_option', [])
+ - ('lr_scheduler', 'flat+decay')
+ - ('warmup_steps', 0)
+ - ('load_epoch', None)
+ - ('start_lr', 0.01)
+ - ('batch_size', 512)
+ - ('use_amp', False)
+ - ('gpus', '0')
+ - ('predict_gpus', '0')
+ - ('num_workers', 1)
+ - ('predict', False)
+ - ('predict_output', 'pred.root')
+ - ('export_onnx', None)
+ - ('onnx_opset', 15)
+ - ('io_test', False)
+ - ('copy_inputs', False)
+ - ('log', 'logs/QuarkGluon_kin.log')
+ - ('print', False)
+ - ('profile', False)
+ - ('backend', None)
+ - ('cross_validation', None)
+ - ('local_rank', None)
+[2024-04-02 15:14:43,966] INFO: Running in classification mode
+[2024-04-02 15:14:44,632] INFO: Using 18 files for training, range: (0, 0.8889)
+[2024-04-02 15:14:44,632] INFO: Using 18 files for validation, range: (0.8889, 1)
+[2024-04-02 15:14:44,642] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:14:44,643] INFO: [0;37mselection: None[0m
+[2024-04-02 15:14:44,643] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:14:44,643] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:14:44,643] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:14:44,643] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:14:44,644] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:14:44,644] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:14:44,644] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:14:44,644] INFO: [0;37mobserver_names: ('jet_pt', 'jet_eta')[0m
+[2024-04-02 15:14:44,644] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:14:44,653] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:14:44,653] INFO: [0;37mselection: None[0m
+[2024-04-02 15:14:44,653] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:14:44,653] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:14:44,653] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:14:44,653] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:14:44,654] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:14:44,654] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:14:44,654] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:14:44,654] INFO: [0;37mobserver_names: ()[0m
+[2024-04-02 15:14:44,654] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:14:44,664] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:14:44,664] INFO: [0;37mselection: None[0m
+[2024-04-02 15:14:44,664] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:14:44,665] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:14:44,665] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:14:44,665] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:14:44,665] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:14:44,665] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:14:44,665] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:14:44,665] INFO: [0;37mobserver_names: ('jet_pt', 'jet_eta')[0m
+[2024-04-02 15:14:44,665] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:14:44,673] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:14:44,674] INFO: [0;37mselection: None[0m
+[2024-04-02 15:14:44,674] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:14:44,674] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:14:44,674] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:14:44,674] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:14:44,674] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:14:44,674] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:14:44,674] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:14:44,674] INFO: [0;37mobserver_names: ()[0m
+[2024-04-02 15:14:44,674] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:14:44,681] INFO: Network options: {}
+[2024-04-02 15:14:45,418] INFO: [0;37mWarning: module EdgeConvBlock is treated as a zero-op.[0m
+[2024-04-02 15:14:45,418] INFO: [0;37mWarning: module Dropout is treated as a zero-op.[0m
+[2024-04-02 15:14:45,418] INFO: [0;37mWarning: module ParticleNet is treated as a zero-op.[0m
+[2024-04-02 15:14:45,418] INFO: [0;37mWarning: module ParticleNetWrapper is treated as a zero-op.[0m
+[2024-04-02 15:14:46,043] INFO: [0;37mParticleNetWrapper(
+  |0.366 M, 100.000% Params, 535.727 MMac, 100.000% MACs|
+  (mod): ParticleNet(
+    |0.366 M, 100.000% Params, 535.727 MMac, 100.000% MACs|
+    (bn_fts): BatchNorm1d(7, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.004% Params, 1.792 KMac, 0.000% MACs|)
+    (edge_convs): ModuleList(
+      (0): EdgeConvBlock(
+        |0.01 M, 2.744% Params, 19.874 MMac, 3.710% MACs|
+        (convs): ModuleList(
+          (0): Conv2d(14, 64, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.001 M, 0.245% Params, 1.835 MMac, 0.343% MACs|)
+          (1-2): 2 x Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.004 M, 1.119% Params, 8.389 MMac, 1.566% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.035% Params, 262.144 KMac, 0.049% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 131.072 KMac, 0.024% MACs|)
+        )
+        (sc): Conv1d(7, 64, kernel_size=(1,), stride=(1,), bias=False, |0.0 M, 0.122% Params, 57.344 KMac, 0.011% MACs|)
+        (sc_bn): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.035% Params, 16.384 KMac, 0.003% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 8.192 KMac, 0.002% MACs|)
+      )
+      (1): EdgeConvBlock(
+        |0.058 M, 15.941% Params, 104.12 MMac, 19.435% MACs|
+        (convs): ModuleList(
+          (0-2): 3 x Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.016 M, 4.475% Params, 33.554 MMac, 6.263% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.070% Params, 524.288 KMac, 0.098% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 262.144 KMac, 0.049% MACs|)
+        )
+        (sc): Conv1d(64, 128, kernel_size=(1,), stride=(1,), bias=False, |0.008 M, 2.237% Params, 1.049 MMac, 0.196% MACs|)
+        (sc_bn): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.070% Params, 32.768 KMac, 0.006% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 16.384 KMac, 0.003% MACs|)
+      )
+      (2): EdgeConvBlock(
+        |0.231 M, 63.203% Params, 411.664 MMac, 76.842% MACs|
+        (convs): ModuleList(
+          (0-2): 3 x Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.066 M, 17.898% Params, 134.218 MMac, 25.053% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.001 M, 0.140% Params, 1.049 MMac, 0.196% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 524.288 KMac, 0.098% MACs|)
+        )
+        (sc): Conv1d(128, 256, kernel_size=(1,), stride=(1,), bias=False, |0.033 M, 8.949% Params, 4.194 MMac, 0.783% MACs|)
+        (sc_bn): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.001 M, 0.140% Params, 65.536 KMac, 0.012% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 32.768 KMac, 0.006% MACs|)
+      )
+    )
+    (fc): Sequential(
+      |0.066 M, 18.108% Params, 66.562 KMac, 0.012% MACs|
+      (0): Sequential(
+        |0.066 M, 17.968% Params, 66.048 KMac, 0.012% MACs|
+        (0): Linear(in_features=256, out_features=256, bias=True, |0.066 M, 17.968% Params, 65.792 KMac, 0.012% MACs|)
+        (1): ReLU(|0.0 M, 0.000% Params, 256.0 Mac, 0.000% MACs|)
+        (2): Dropout(p=0.1, inplace=False, |0.0 M, 0.000% Params, 0.0 Mac, 0.000% MACs|)
+      )
+      (1): Linear(in_features=256, out_features=2, bias=True, |0.001 M, 0.140% Params, 514.0 Mac, 0.000% MACs|)
+    )
+  )
+)[0m
+[2024-04-02 15:14:46,044] INFO: Computational complexity:       535.73 MMac
+[2024-04-02 15:14:46,045] INFO: Number of parameters:           366.16 k
+[2024-04-02 15:14:46,045] INFO: Using loss function CrossEntropyLoss() with options {}
+[2024-04-02 15:14:49,420] INFO: Create Tensorboard summary writer with comment QuarkGluon_kin_kin
+[2024-04-02 15:14:49,429] INFO: Optimizer options: {}
+[2024-04-02 15:14:49,445] INFO: --------------------------------------------------
+[2024-04-02 15:14:49,445] INFO: Epoch #0 training
+[2024-04-02 15:14:49,512] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_0.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_1.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_10.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_11.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_12.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_13.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_14.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_15.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_16.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_17.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_2.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_3.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_4.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_5.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_6.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_7.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_8.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_9.parquet"
+  ]
+}
+[2024-04-02 15:34:59,589] INFO: args:
+ - ('regression_mode', False)
+ - ('data_config', 'data_config/qg_kin.yaml')
+ - ('extra_selection', None)
+ - ('extra_test_selection', None)
+ - ('data_train', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_*.parquet'])
+ - ('data_val', [])
+ - ('data_test', ['/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/test_file_*.parquet'])
+ - ('data_fraction', 1)
+ - ('file_fraction', 1)
+ - ('fetch_by_files', False)
+ - ('fetch_step', 1.0)
+ - ('in_memory', True)
+ - ('train_val_split', 0.8889)
+ - ('no_remake_weights', False)
+ - ('demo', False)
+ - ('lr_finder', None)
+ - ('tensorboard', 'QuarkGluon_kin_kin')
+ - ('tensorboard_custom_fn', None)
+ - ('network_config', 'network_config/ParticleNetConf.py')
+ - ('network_option', [])
+ - ('model_prefix', 'training/QuarkGluon/kin/net')
+ - ('load_model_weights', None)
+ - ('exclude_model_weights', None)
+ - ('num_epochs', 20)
+ - ('steps_per_epoch', 3125)
+ - ('steps_per_epoch_val', 390)
+ - ('samples_per_epoch', 1600000)
+ - ('samples_per_epoch_val', 200000)
+ - ('optimizer', 'ranger')
+ - ('optimizer_option', [])
+ - ('lr_scheduler', 'flat+decay')
+ - ('warmup_steps', 0)
+ - ('load_epoch', None)
+ - ('start_lr', 0.01)
+ - ('batch_size', 512)
+ - ('use_amp', False)
+ - ('gpus', '')
+ - ('predict_gpus', '')
+ - ('num_workers', 1)
+ - ('predict', False)
+ - ('predict_output', 'pred.root')
+ - ('export_onnx', None)
+ - ('onnx_opset', 15)
+ - ('io_test', False)
+ - ('copy_inputs', False)
+ - ('log', 'logs/QuarkGluon_kin.log')
+ - ('print', False)
+ - ('profile', False)
+ - ('backend', None)
+ - ('cross_validation', None)
+ - ('local_rank', None)
+[2024-04-02 15:34:59,592] INFO: Running in classification mode
+[2024-04-02 15:35:03,181] INFO: Using 18 files for training, range: (0, 0.8889)
+[2024-04-02 15:35:03,181] INFO: Using 18 files for validation, range: (0.8889, 1)
+[2024-04-02 15:35:03,200] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:35:03,200] INFO: [0;37mselection: None[0m
+[2024-04-02 15:35:03,200] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:35:03,200] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:35:03,200] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:35:03,200] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:35:03,200] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:35:03,200] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:35:03,201] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:35:03,201] INFO: [0;37mobserver_names: ('jet_pt', 'jet_eta')[0m
+[2024-04-02 15:35:03,201] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:35:03,220] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:35:03,221] INFO: [0;37mselection: None[0m
+[2024-04-02 15:35:03,221] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:35:03,222] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:35:03,222] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:35:03,222] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:35:03,222] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:35:03,223] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:35:03,223] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:35:03,223] INFO: [0;37mobserver_names: ()[0m
+[2024-04-02 15:35:03,224] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:35:03,278] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:35:03,278] INFO: [0;37mselection: None[0m
+[2024-04-02 15:35:03,278] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:35:03,279] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:35:03,279] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:35:03,279] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:35:03,279] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:35:03,279] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:35:03,279] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:35:03,279] INFO: [0;37mobserver_names: ('jet_pt', 'jet_eta')[0m
+[2024-04-02 15:35:03,279] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:35:03,310] INFO: [0;37mpreprocess config: {'method': 'manual', 'data_fraction': 0.5, 'params': None}[0m
+[2024-04-02 15:35:03,311] INFO: [0;37mselection: None[0m
+[2024-04-02 15:35:03,311] INFO: [0;37mtest_time_selection: None[0m
+[2024-04-02 15:35:03,311] INFO: [0;37mvar_funcs:
+ - ('part_mask', 'ak.ones_like(part_deta)')
+ - ('part_pt', 'np.hypot(part_px, part_py)')
+ - ('part_pt_log', 'np.log(part_pt)')
+ - ('part_e_log', 'np.log(part_energy)')
+ - ('part_logptrel', 'np.log(part_pt/jet_pt)')
+ - ('part_logerel', 'np.log(part_energy/jet_energy)')
+ - ('part_deltaR', 'np.hypot(part_deta, part_dphi)')
+ - ('jet_isQ', 'label')
+ - ('jet_isG', '1-label')
+ - ('_label_', 'np.argmax(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')
+ - ('_labelcheck_', 'np.sum(np.stack([ak.to_numpy(jet_isQ),ak.to_numpy(jet_isG)], axis=1), axis=1)')[0m
+[2024-04-02 15:35:03,311] INFO: [0;37minput_names: ('pf_points', 'pf_features', 'pf_vectors', 'pf_mask')[0m
+[2024-04-02 15:35:03,311] INFO: [0;37minput_dicts:
+ - ('pf_points', ['part_deta', 'part_dphi'])
+ - ('pf_features', ['part_pt_log', 'part_e_log', 'part_logptrel', 'part_logerel', 'part_deltaR', 'part_deta', 'part_dphi'])
+ - ('pf_vectors', ['part_px', 'part_py', 'part_pz', 'part_energy'])
+ - ('pf_mask', ['part_mask'])[0m
+[2024-04-02 15:35:03,311] INFO: [0;37minput_shapes:
+ - ('pf_points', (-1, 2, 128))
+ - ('pf_features', (-1, 7, 128))
+ - ('pf_vectors', (-1, 4, 128))
+ - ('pf_mask', (-1, 1, 128))[0m
+[2024-04-02 15:35:03,311] INFO: [0;37mpreprocess_params:
+ - ('part_deta', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_dphi', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pt_log', {'length': 128, 'pad_mode': 'wrap', 'center': 1.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_e_log', {'length': 128, 'pad_mode': 'wrap', 'center': 2.0, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logptrel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_logerel', {'length': 128, 'pad_mode': 'wrap', 'center': -4.7, 'scale': 0.7, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_deltaR', {'length': 128, 'pad_mode': 'wrap', 'center': 0.2, 'scale': 4.0, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_px', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_py', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_pz', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_energy', {'length': 128, 'pad_mode': 'wrap', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})
+ - ('part_mask', {'length': 128, 'pad_mode': 'constant', 'center': None, 'scale': 1, 'min': -5, 'max': 5, 'pad_value': 0})[0m
+[2024-04-02 15:35:03,311] INFO: [0;37mlabel_names: ('_label_',)[0m
+[2024-04-02 15:35:03,311] INFO: [0;37mobserver_names: ()[0m
+[2024-04-02 15:35:03,311] INFO: [0;37mmonitor_variables: ()[0m
+[2024-04-02 15:35:03,452] INFO: Network options: {}
+[2024-04-02 15:35:03,830] INFO: [0;37mWarning: module EdgeConvBlock is treated as a zero-op.[0m
+[2024-04-02 15:35:03,834] INFO: [0;37mWarning: module Dropout is treated as a zero-op.[0m
+[2024-04-02 15:35:03,834] INFO: [0;37mWarning: module ParticleNet is treated as a zero-op.[0m
+[2024-04-02 15:35:03,834] INFO: [0;37mWarning: module ParticleNetWrapper is treated as a zero-op.[0m
+[2024-04-02 15:35:04,215] INFO: [0;37mParticleNetWrapper(
+  |0.366 M, 100.000% Params, 535.727 MMac, 100.000% MACs|
+  (mod): ParticleNet(
+    |0.366 M, 100.000% Params, 535.727 MMac, 100.000% MACs|
+    (bn_fts): BatchNorm1d(7, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.004% Params, 1.792 KMac, 0.000% MACs|)
+    (edge_convs): ModuleList(
+      (0): EdgeConvBlock(
+        |0.01 M, 2.744% Params, 19.874 MMac, 3.710% MACs|
+        (convs): ModuleList(
+          (0): Conv2d(14, 64, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.001 M, 0.245% Params, 1.835 MMac, 0.343% MACs|)
+          (1-2): 2 x Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.004 M, 1.119% Params, 8.389 MMac, 1.566% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.035% Params, 262.144 KMac, 0.049% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 131.072 KMac, 0.024% MACs|)
+        )
+        (sc): Conv1d(7, 64, kernel_size=(1,), stride=(1,), bias=False, |0.0 M, 0.122% Params, 57.344 KMac, 0.011% MACs|)
+        (sc_bn): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.035% Params, 16.384 KMac, 0.003% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 8.192 KMac, 0.002% MACs|)
+      )
+      (1): EdgeConvBlock(
+        |0.058 M, 15.941% Params, 104.12 MMac, 19.435% MACs|
+        (convs): ModuleList(
+          (0-2): 3 x Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.016 M, 4.475% Params, 33.554 MMac, 6.263% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.070% Params, 524.288 KMac, 0.098% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 262.144 KMac, 0.049% MACs|)
+        )
+        (sc): Conv1d(64, 128, kernel_size=(1,), stride=(1,), bias=False, |0.008 M, 2.237% Params, 1.049 MMac, 0.196% MACs|)
+        (sc_bn): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.0 M, 0.070% Params, 32.768 KMac, 0.006% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 16.384 KMac, 0.003% MACs|)
+      )
+      (2): EdgeConvBlock(
+        |0.231 M, 63.203% Params, 411.664 MMac, 76.842% MACs|
+        (convs): ModuleList(
+          (0-2): 3 x Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False, |0.066 M, 17.898% Params, 134.218 MMac, 25.053% MACs|)
+        )
+        (bns): ModuleList(
+          (0-2): 3 x BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.001 M, 0.140% Params, 1.049 MMac, 0.196% MACs|)
+        )
+        (acts): ModuleList(
+          (0-2): 3 x ReLU(|0.0 M, 0.000% Params, 524.288 KMac, 0.098% MACs|)
+        )
+        (sc): Conv1d(128, 256, kernel_size=(1,), stride=(1,), bias=False, |0.033 M, 8.949% Params, 4.194 MMac, 0.783% MACs|)
+        (sc_bn): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True, |0.001 M, 0.140% Params, 65.536 KMac, 0.012% MACs|)
+        (sc_act): ReLU(|0.0 M, 0.000% Params, 32.768 KMac, 0.006% MACs|)
+      )
+    )
+    (fc): Sequential(
+      |0.066 M, 18.108% Params, 66.562 KMac, 0.012% MACs|
+      (0): Sequential(
+        |0.066 M, 17.968% Params, 66.048 KMac, 0.012% MACs|
+        (0): Linear(in_features=256, out_features=256, bias=True, |0.066 M, 17.968% Params, 65.792 KMac, 0.012% MACs|)
+        (1): ReLU(|0.0 M, 0.000% Params, 256.0 Mac, 0.000% MACs|)
+        (2): Dropout(p=0.1, inplace=False, |0.0 M, 0.000% Params, 0.0 Mac, 0.000% MACs|)
+      )
+      (1): Linear(in_features=256, out_features=2, bias=True, |0.001 M, 0.140% Params, 514.0 Mac, 0.000% MACs|)
+    )
+  )
+)[0m
+[2024-04-02 15:35:04,216] INFO: Computational complexity:       535.73 MMac
+[2024-04-02 15:35:04,216] INFO: Number of parameters:           366.16 k
+[2024-04-02 15:35:04,216] INFO: Using loss function CrossEntropyLoss() with options {}
+[2024-04-02 15:35:13,049] INFO: Create Tensorboard summary writer with comment QuarkGluon_kin_kin
+[2024-04-02 15:35:13,050] INFO: Optimizer options: {}
+[2024-04-02 15:35:13,131] INFO: --------------------------------------------------
+[2024-04-02 15:35:13,131] INFO: Epoch #0 training
+[2024-04-02 15:35:15,073] INFO: Restarted DataIter train_worker0, load_range=(0.0, 0.8889), file_list:
+{
+  "_": [
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_0.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_1.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_10.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_11.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_12.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_13.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_14.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_15.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_16.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_17.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_2.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_3.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_4.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_5.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_6.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_7.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_8.parquet",
+    "/srv01/agrp/annai/annai/QURK-GLUON/datasets/pythia/QuarkGluon/train_file_9.parquet"
+  ]
+}
