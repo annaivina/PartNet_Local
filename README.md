@@ -1,5 +1,5 @@
 # PartNet_Local
-ParticleNet and Partcile transformer code which is adopted from https://github.com/jet-universe/particle_transformer/ \\
+ParticleNet and Partcile transformer code which is adopted from https://github.com/jet-universe/particle_transformer/\
 This code uses to models to train events.
 Currently, this code is modified to use our new data which has been processed cocoa.
 The reprocessing of the data is in /reprocessing directory
