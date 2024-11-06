@@ -67,6 +67,7 @@ def train_classification(
             inputs = [X[k].to(dev) for k in data_config.input_names]
             label = y[data_config.label_names[0]].long().to(dev)
             entry_count += label.shape[0]
+            print(label.shape)
             try:
                 mask = y[data_config.label_names[0] + '_mask'].bool().to(dev)
             except KeyError:
@@ -224,7 +225,9 @@ def evaluate_classification(model, test_loader, dev, epoch, for_training=True, l
 
     scores = np.concatenate(scores)
     labels = {k: _concat(v) for k, v in labels.items()}
+    print(labels)
     metric_results = evaluate_metrics(labels[data_config.label_names[0]], scores, eval_metrics=eval_metrics)
+    print("something is wrong here")
     _logger.info('Evaluation metrics: \n%s', '\n'.join(
         ['    - %s: \n%s' % (k, str(v)) for k, v in metric_results.items()]))
 
@@ -232,14 +235,17 @@ def evaluate_classification(model, test_loader, dev, epoch, for_training=True, l
         return total_correct / count
     else:
         # convert 2D labels/scores
+        print("needs conversion")
         if len(scores) != entry_count:
             if len(labels_counts):
-                labels_counts = np.concatenate(labels_counts)
-                scores = ak.unflatten(scores, labels_counts)
-                for k, v in labels.items():
-                    labels[k] = ak.unflatten(v, labels_counts)
+            	print("needs conversion in labels and counts")
+            	labels_counts = np.concatenate(labels_counts)
+            	scores = ak.unflatten(scores, labels_counts)
+            	for k, v in labels.items():
+            		labels[k] = ak.unflatten(v, labels_counts)
             else:
                 assert (count % entry_count == 0)
+                print("needs conversion in labels and counts in else statement")
                 scores = scores.reshape((entry_count, int(count / entry_count), -1)).transpose((1, 2))
                 for k, v in labels.items():
                     labels[k] = v.reshape((entry_count, -1))

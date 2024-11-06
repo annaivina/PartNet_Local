@@ -2,7 +2,7 @@
 
 
 # set the dataset dir via `DATADIR_QuarkGluon`
-DATADIR='/srv01/agrp/annai/annai/QURK-GLUON/samples_produce/Cocoa/Cocoa_Zjets/Ready_To_Train/'
+DATADIR='/storage/agrp/annai/QURK-GLUON/datasets/pythia/QuarkGluon/'
 
 #For the ParticleNet 
 extraopts=""
@@ -16,9 +16,9 @@ python train.py \
 	--data-train "${DATADIR}/train_file_*.parquet" \
 	--data-test "${DATADIR}/test_file_*.parquet" \
     --data-config data_config/qg_${FEATURE_TYPE}.yaml --network-config $modelopts \
-    --model-prefix training/QuarkGluon_NewData_epr/${model}/net \
+    --model-prefix training/QuarkGluon_OldwData/${model}/net \
     --num-workers 1 --fetch-step 1 --in-memory --train-val-split 0.8889 \
-    --batch-size 512 --samples-per-epoch 153000 --samples-per-epoch-val 17000 --num-epochs 50 --gpus '' \
-    --start-lr $lr --optimizer ranger --log logs/QuarkGluon_new_repr_${model}.log --predict-output pred.root \
-    --tensorboard QuarkGluon_new_repr_${FEATURE_TYPE}_${model} \
+    --batch-size 512 --samples-per-epoch 1600000 --samples-per-epoch-val 200000 --num-epochs 20 --gpus 0 \
+    --start-lr $lr --optimizer ranger --log logs/QuarkGluon_Old_${model}.log --predict-output pred.root \
+    --tensorboard QuarkGluon_Old_${FEATURE_TYPE}_${model} \
     ${extraopts} "${@:3}"
